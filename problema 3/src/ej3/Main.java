@@ -4,6 +4,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
 public class Main {
@@ -31,6 +35,22 @@ class Ventana {
 		miFrame.setSize(512, 512);
 		miFrame.setLocationRelativeTo(null);
 		miFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		miBoton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				System.out.println("has pulsado el boton");
+				String s = miTexto.getText();
+				
+				String lines[] = s.split("\\r?\\n");
+				for (String i: lines) {
+					System.out.println("linea: " + i);
+				}
+				
+			}
+			
+		});
 		
 	}
 }
