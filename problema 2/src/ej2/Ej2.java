@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Ej2 {
 	// Wang Zhen Ou
+	// https://contest.tuenti.net/resources/2016/Question_2.html
 	
 	private static int palabrasTotales = 0; // variable para ver el indice por el que vamos del array escaneados
 	private static int casos = 0; // variable para los casos a calcular 

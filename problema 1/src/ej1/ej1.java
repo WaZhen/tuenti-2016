@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class ej1 {
 	// Wang Zhen Ou
+	// https://contest.tuenti.net/resources/2016/Question_1.html
 	public static void main(String[] args) {
 		
 		Scanner entrada = new Scanner(System.in);

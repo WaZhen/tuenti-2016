@@ -1,10 +1,13 @@
 package ej3;
+// Wang Zhen Ou
+// https://contest.tuenti.net/resources/2016/Question_3.html
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// prueba commit branch ej3
+		
+		Ventana miVentana = new Ventana();
+		
 	}
 
 }
