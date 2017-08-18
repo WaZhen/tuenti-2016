@@ -1,0 +1,51 @@
+creamos clase atajo
+creamos clase piso con la propiedad atajos, pisoSiguiente y puntuacion
+al instanciar atajos, los asignamos a pisos, asi evitamos recorrer un array de atajos
+
+para la clase piso:
+    creamos el metodo tomar atajos. -> tomaAtajo(piso)
+    creamos un atajo falso que sea el de subir normal y lo añadimos al array de atajos
+    creamos el metodo subir normal. -> subeNormal();
+    creamos un metodo puntua, que registra el tiempo minimo de llegada a un piso y comprueba
+        la puntuacion de todos los anteriores. Si la puntuacion de los pisos inferiores es mayor,
+        la iguala a la puntuacion del piso superior ya que bajar es gratis. ->puntua(tiempo);
+        si la puntuacion es mayor, deja de calcular. Si la puntuacion es menor, llama a la funcion
+        tomaAtajo() del piso al que has subido.
+    
+    
+Una vez creadas las clases con sus propiedades y metodos, diseñamos el input.
+
+ALGORITMO.
+
+metodo puntua(arrayPisos, nuevaPuntuacion, atajoTomado) {
+    if(this.piso.puntos >= nuevaPuntuacion) {
+        this.piso.puntos = nuevaPuntuacion;
+        for(var pisoAComprobar = this.piso; pisoAComprobar > 0; pisoAComprobar--) {
+            if(arrayPisos[pisoAComprobar].puntos >= nuevaPuntuacion) { // O es el propio piso, o vale la pena bajar
+                PisoAComprobar.puntos = nuevaPuntuacion;
+                tomaAtajo(piso); // prueba a subir desde aqui y desde todos los pisos de abajo que para llegara a ellos se baje desde aqui
+            }
+        }
+    } else {
+        atajoTomado.rentable = false; // esta linea es la que va optimizando los calculos, de primeras todos los atajos los consideramos rentables
+    }
+}
+
+//metodo subeNormal(piso) {
+//    nuevaPuntuacion = piso.puntuacion + piso.piso;
+//    puntua(piso.pisoSiguiente, nuevaPuntuacion);
+//    tomaAtajo(piso);
+//}
+
+metodo tomaAtajo(piso){
+    for(atajo = 0; atajo < piso.atajos.length; atajo++) { // para cada atajo del piso
+        if(piso.atajos[atajo].rentable == true) { // esta es la linea que optimiza el calculo, comprueba solo los caminos que no hayan sido descartados aun
+            nuevaPuntuacion = piso.puntuacion + piso.atajos.tiempo;
+            puntua(piso.atajos.destino, nuevaPuntuacion, piso.atajos[atajo]);
+        }
+    } // fin del for piso.atajos.length
+}
+
+
+// main
+pisos[0].tomaAtajo; // arranca el programa
